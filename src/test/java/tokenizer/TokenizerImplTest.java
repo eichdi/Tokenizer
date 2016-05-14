@@ -33,29 +33,26 @@ public class TokenizerImplTest  {
         return test_text;
     }
 
-    public void testDivided(String[] expected, String[] actual, String by){
-        if(expected.length==actual.length){
-            assertArrayEquals("Word is wrong divided",expected,actual);
-        }
-        else{
-            fail();
-        }
+    public void testDivided(String[] expected, String[] actual){
+
+        assertArrayEquals("Word is wrong divided",expected,actual);
+
     }
 
     @org.junit.Test
     public void testDividedBy() throws Exception {
-        testDivided(test_class.dividedBy(by,test_text),test_word,by);
+        testDivided(test_class.dividedBy(by,test_text),test_word);
     }
 
     @org.junit.Test
     public void testDividedBy1() throws Exception {
-        testDivided(test_class.dividedBy(by_char,test_text),test_word,by);
+        testDivided(test_class.dividedBy(by_char,test_text),test_word);
     }
 
     @org.junit.Test
     public void testSplit() throws Exception {
         String test_text = "Тестовое слово";
         String[] test_word = new String[]{"Тестовое", "слово"};
-        testDivided(test_class.split(test_text),test_word," ");
+        testDivided(test_class.split(test_text),test_word);
     }
 }
